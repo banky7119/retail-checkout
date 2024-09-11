@@ -1,0 +1,33 @@
+/* Kiosk Container */
+.kiosk-container {
+    max-width: 90vw;
+    max-height: 90vh;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-sizing: border-box;
+    overflow: auto;
+  }
+  
+  /* Kiosk Items */
+  .kiosk-items .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Buy Now Button */
+  .buy-now {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .buy-now:hover {
+    background-color: #0056b3;
+  }

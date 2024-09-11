@@ -1,0 +1,32 @@
+/* Queue Container */
+.queue-container {
+    max-width: 90vw;
+    max-height: 90vh;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-sizing: border-box;
+    overflow: auto;
+  }
+  
+  /* Join Queue Button */
+  .join-queue {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .join-queue:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Queue Status */
+  .queue-status {
+    margin-top: 20px;
+  }
+  

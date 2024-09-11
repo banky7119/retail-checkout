@@ -1,0 +1,69 @@
+/* Checkout Container */
+.checkout-container {
+    max-width: 90vw; /* Adjust width to be a percentage of the viewport width */
+    max-height: 90vh; /* Adjust height to be a percentage of the viewport height */
+    margin: auto;
+    padding: 20px; /* Adjust padding for better responsiveness */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    overflow: auto; /* Handle content overflow */
+  }
+  
+  /* Input Fields */
+  input {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+  }
+  
+  /* Buttons */
+  button {
+    padding: 10px;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Cart Section */
+  .cart {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+  }
+  
+  /* Cart Items */
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  /* Total Section */
+  .total {
+    margin-top: 20px;
+    text-align: right;
+  }
+  
+  /* Pay Button */
+  .pay-button {
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .pay-button:hover {
+    background-color: #218838;
+  }
