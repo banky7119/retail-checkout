@@ -1,15 +1,21 @@
 /* Queue Container */
 .queue-container {
-    max-width: 90vw;
-    max-height: 90vh;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #fff;
-    box-sizing: border-box;
-    overflow: auto;
-  }
+  max-width: 90vw;
+  max-height: 90vh;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #e7c6c6;
+  background-image: url('https://cdn.hero.page/pfp/ac7c6ea3-3e40-47b7-af3c-0c680800f253-dark-aesthetic-anime-scenery-anime-pfp-dark-aesthetic-style-4.png');
+  background-size: cover;  
+  background-position: center;  
+  background-repeat: no-repeat; 
+  box-sizing: border-box;
+  overflow: auto;
+  text-decoration: #0056b3;
+}
+
   
   /* Join Queue Button */
   .join-queue {
@@ -29,4 +35,10 @@
   .queue-status {
     margin-top: 20px;
   }
+  .error {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
   

@@ -1,24 +1,32 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import MobileCheckout from './components/MobileCheckout';
-import SelfServiceKiosk from './components/SelfServiceKiosk';
+
 import QueueManagement from './components/QueueManagement';
+import LoginPage from './components/LoginPage';
 import './App.css';
 
 const App: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [username, setUsername] = useState<string | null>(null);
+
+  const handleLogin = (user: string) => {
+    setUsername(user);
+    setIsAuthenticated(true);
+  };
+
   return (
     <Router>
-      <nav>
-        <ul>
-          <li><Link to="/mobile-checkout">Mobile Checkout</Link></li>
-          <li><Link to="/self-service-kiosk">Self-Service Kiosk</Link></li>
-          <li><Link to="/queue-management">Queue Management</Link></li>
-        </ul>
-      </nav>
       <Routes>
+        <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
         <Route path="/mobile-checkout" element={<MobileCheckout />} />
-        <Route path="/self-service-kiosk" element={<SelfServiceKiosk />} />
-        <Route path="/queue-management" element={<QueueManagement />} />
+      
+        <Route 
+          path="/queue-management" 
+          element={isAuthenticated ? <QueueManagement username={username!} /> : <Navigate to="/login" />}
+        />
+        {/* Default route redirect */}
+        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
   );

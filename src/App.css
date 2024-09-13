@@ -1,18 +1,26 @@
 /* App.css */
 html, body {
-  height: 100%; /* Full height */
-  margin: 0; /* Remove default margin */
+  height: 100%; 
+  margin: 0; 
 }
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #100e0e;
+  background-image: url('https://images6.alphacoders.com/135/1351633.png'); 
+  background-size: cover;  
+  background-position: center;  
+  background-repeat: no-repeat;  
+  background-attachment: fixed;  
   display: flex;
   flex-direction: column;
+  min-height: 100vh;  
+  margin: 0;
+  padding: 0;
 }
 
+
 #root {
-  flex: 1; /* Take up the remaining height */
+  flex: 1; 
   display: flex;
   flex-direction: column;
 }
@@ -46,8 +54,8 @@ h2 {
 }
 
 .container {
-  flex: 1; /* Take up remaining space */
-  max-width: 100%; /* Ensure it doesn't overflow */
+  flex: 1; 
+  max-width: 100%; 
   margin: 0 auto;
   background-color: rgb(118, 22, 22);
   padding: 20px;
