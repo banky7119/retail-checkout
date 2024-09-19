@@ -1,32 +1,21 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import MobileCheckout from './components/MobileCheckout';
-
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SignUp from './components/signUp';
+import Login from './components/LoginPage';
 import QueueManagement from './components/QueueManagement';
-import LoginPage from './components/LoginPage';
-import './App.css';
 
 const App: React.FC = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [username, setUsername] = useState<string | null>(null);
-
-  const handleLogin = (user: string) => {
-    setUsername(user);
-    setIsAuthenticated(true);
+  const handleLogin = (username: string) => {
+    // handle user login state
+    console.log(`${username} has logged in`);
   };
 
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
-        <Route path="/mobile-checkout" element={<MobileCheckout />} />
-      
-        <Route 
-          path="/queue-management" 
-          element={isAuthenticated ? <QueueManagement username={username!} /> : <Navigate to="/login" />}
-        />
-        {/* Default route redirect */}
-        <Route path="*" element={<Navigate to="/login" />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
+        <Route path="/queue-management" element={<QueueManagement username="user" />} />
       </Routes>
     </Router>
   );

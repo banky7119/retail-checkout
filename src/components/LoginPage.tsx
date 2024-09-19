@@ -1,31 +1,35 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
-import './LoginPage.css';
+import { useNavigate } from 'react-router-dom';
 
-interface LoginPageProps {
+interface LoginProps {
   onLogin: (username: string) => void;
 }
 
-const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
+const Login: React.FC<LoginProps> = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (username  === 'bankole' && password === 'password') {
-      onLogin(username);
-      navigate('/queue-management'); 
+    const storedUser = localStorage.getItem(`user-${username}`);
+    if (storedUser) {
+      const { password: storedPassword } = JSON.parse(storedUser);
+      if (password === storedPassword) {
+        onLogin(username);
+        navigate('/queue-management'); 
+      } else {
+        setError('Invalid password');
+      }
     } else {
-      setError('Invalid username or password');
+      setError('User not found');
     }
-  }; 
-  
+  };
 
   return (
     <div className="login-container">
       <h2>Login</h2>
+      {error && <p className="error">{error}</p>}
       <input
         type="text"
         placeholder="Username"
@@ -39,9 +43,11 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button onClick={handleLogin}>Login</button>
-      {error && <p className="error">{error}</p>}
+      <p>
+        Don't have an account? <span onClick={() => navigate('/signup')}>Sign up here</span>
+      </p>
     </div>
   );
 };
 
-export default LoginPage;
+export default Login;
